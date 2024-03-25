@@ -1,0 +1,30 @@
+{
+  "name": "mangopay_repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "debug": "npx playwright test --debug",
+    "open": "npx playwright codegen",
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roxanabarabas/mangopay_repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roxanabarabas/mangopay_repo/issues"
+  },
+  "homepage": "https://github.com/roxanabarabas/mangopay_repo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.30"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "dotenv-extended": "^2.9.0"
+  }
+}
