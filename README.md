@@ -5,4 +5,5 @@
 - install Node JS: https://nodejs.org/en/download/
 - install extension ESLint
 - in playwright config ts: added screenshots only on failure and   video: 'on'
+- to run the test and see the results: npx playwright test --reporter=html  and then npx playwright show-report
 
