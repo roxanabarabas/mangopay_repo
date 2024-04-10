@@ -1,4 +1,4 @@
-# mangopay_repo
+# test_maps
 - install extension Playwright test for VS code
  ctr+Shift+P
 - once installed, open the command panel and type: Install Playwright
