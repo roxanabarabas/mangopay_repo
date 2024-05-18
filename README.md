@@ -13,7 +13,10 @@ Git Bash:
 ```
 env=prod npx playwright test .\tests\*
 env=qa npx playwright test .\tests\*
-
-### How to see reports with the executed tests
+```
+## How to see reports with the executed tests
 npx playwright show-report
+
+## Test plan for Login 
+the test plan for the Login functionality can be find under the test-plan folder
 
