@@ -18,12 +18,11 @@ And enters the following data
 Then an error message is displayed
 And user is not able to proceed to the password field
 
-Scenario: Login with invalid credentials email validation upper Letter
+Scenario: Login with email first upper case letter - field which is case-insensitive
 When the user navigates to the login page
 And enters the following data
 | Email | Testing.maps@email.com |
 Then the user should be able to proceed to the next step
-And checks that email field is case-insensitive
 
 Scenario: Login with invalid credentials password validation
 When the user enters the login page
@@ -49,12 +48,12 @@ And enters the following data
 Then an error message is displayed saying that the password criteria is not met
 And user is not able to sign in
 
-Scenario: Login with invalid credentials password validation
+Scenario: Login check if the user exists in the DB
 When the user goes to the DataBase
 And checks if the email exists in the DB
 Then the user validates that the email exists
 
-Scenario: Test Security limit the total number of unssuccessfull attempts to log in
+Scenario: Login Security limit the total number of unssuccessfull attempts to log in
 When the user enters the login page
 And enters the following data
 | Email | testing.maps@email.com  |
@@ -63,7 +62,7 @@ Then an error message is displayed saying that the password criteria is not met
 And user tries again to login
 And then a message is displayed sayingd that the total number of unssuccessfull login attempts are reached
 
-Scenario: Test Security generic error message for incorrect user/password
+Scenario: Login Security generic error message for incorrect user/password
 When the user enters the login page
 And enters the following data
 | Email | testing.maps@email.com  |
@@ -78,10 +77,25 @@ And enters the following data
 | Email | testing.maps@email.com  |
 | Password | SomethingToRemember123 |
 Then a checkbox is displayed under the password field
-And the user can validate capcha avoiding bots to sign in
 
-Scenario: Security: User can login simultaneously in different browsers
-When the user enters the login page on Chrome
+Scenario: Security: Check if captcha is set to true
+When the user enters the login page
+And enters the following data
+| Email | testing.maps@email.com  |
+| Password | SomethingToRemember123 |
+And the user marks the checkbox for captch to true
+Then the user is successfully logged in
+
+Scenario: Security: Check if captcha is set to false
+When the user enters the login page
+And enters the following data
+| Email | testing.maps@email.com  |
+| Password | SomethingToRemember123 |
+And the user does not marks the checkbox for captch to true
+Then the user is prompted with an error message 
+
+Scenario: Login Security: User can login simultaneously in different browsers
+When the user enters the login page from Chrome
 And enters the following data
 | Email | testing.maps@email.com  |
 | Password | SomethingToRemember123 |
@@ -89,7 +103,7 @@ And opens another browser Edge
 And writes the same thing
 Then the user should be successfully logged in on both browsers
 
-Scenario: Security: User cannot login at the same time in the same browser
+Scenario: Login Security: User cannot login at the same time in the same browser
 When the user enters the login page
 And enters the following data
 | Email | testing.maps@email.com  |
@@ -136,13 +150,3 @@ And enters the following data
 | Password | SomethingToRemember123456 |
 And presses the 'Ok' button
 Then the user is signned in successfully if the time doesn't exceed 10s
-
-Scenario: Verify that the user can access the sign in page from different browsers
-When the user enters the login page from Chrome
-And enters the following data
-| Email | testing.maps@email.com |
-| Password | SomethingToRemember123456 |
-And presses the 'Ok' button
-Then the user is signned in successfully
-
-
