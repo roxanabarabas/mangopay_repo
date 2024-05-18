@@ -1,9 +1,19 @@
-# test_maps
-- install extension Playwright test for VS code
- ctr+Shift+P
-- once installed, open the command panel and type: Install Playwright
-- install Node JS: https://nodejs.org/en/download/
-- install extension ESLint
-- in playwright config ts: added screenshots only on failure and   video: 'on'
-- to run the test and see the results: npx playwright test --reporter=html  and then npx playwright show-report
+# How to install
+* install Node JS: https://nodejs.org/en/download/
+* from inside the repository folder run the `npm install` command
+* install extension Playwright test for VS code
+* ctr+Shift+P opens the command panel and type: Install Playwright (or `npx playwright install`)
+* install Node JS: https://nodejs.org/en/download/
+
+## How to run tests on different env
+* there are 2 ways to run the test in the desired environment: 
+1: run from test explorer using .env file (in the root folder create a new file `.env`), update each time in which env to run (ex env = prod or env = qa )
+2: run from terminal - use the following commands:
+Git Bash:
+```
+env=prod npx playwright test .\tests\*
+env=qa npx playwright test .\tests\*
+
+### How to see reports with the executed tests
+npx playwright show-report
 

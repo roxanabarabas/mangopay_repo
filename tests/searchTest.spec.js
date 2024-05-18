@@ -3,8 +3,8 @@ import { expect } from '@playwright/test';
 import { test } from '../fixtures/base';
 
 test.describe('Search functionality for Google Maps', () => {
-  test.beforeEach(async ({ searchClass,page }) => {
-    await page.goto(process.env.URL)
+  test.beforeEach(async ({ searchClass,page, baseURL}) => {
+    await page.goto(baseURL)
     await searchClass.acceptCookies();
   });
   test('Check if the correct language is selected', async ({ searchClass }) => {
